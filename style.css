@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin-top: 40px;
+
+}
+
+/* Header */
+header {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 2.5em;
+    text-align: center;
+    margin-left: 750px;
+    margin-top: 40px;
+}
+
+/* Barra de búsqueda */
+.barra-busqueda {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 35px;
+
+
+}
+
+.barra-busqueda input {
+    width: 400px;
+    /* Aumentá este valor según lo que quieras */
+    padding: 0.5em 1em;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    border-radius: 3px;
+    height: 45px;
+    width: 350px;
+
+}
+
+nav ul .submenu {
+    display: none;
+    position: absolute;
+    background-color: #222;
+    margin-top: 0.5em;
+    padding: 0.5em 0;
+    list-style: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    padding: 0.8em 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.barra-busqueda button {
+    background-color: #08b45e;
+    border: none;
+    padding: 0.5em 2em;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.secciones {
+    padding: 9px;
+    background-color: #08b45e;
+}
+
+
+.catalogo {
+    font-size: 15px;
+    font-weight: 232;
+    gap: 20px
+}
+
+.catalogo :hover {
+    background-color: #4dcd8d;
+
+}
+
+.carrito .contador {
+
+    color: white;
+    border-radius: 40%;
+    padding: 0.2em 0.5em;
+
+    font-size: medium;
+
+}
+
+/* Layout general */
+.contenedor-principal {
+    display: flex;
+    padding: 20px;
+}
+
+/* Categorías */
+.categorias {
+    width: 200px;
+    margin-right: 30px;
+}
+
+.categorias h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.categorias ul {
+    list-style: none;
+    padding: 0;
+}
+
+.categorias li {
+    margin-bottom: 10px;
+}
+
+.categorias a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Productos */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+    flex: 1;
+}
+
+.producto {
+    text-align: center;
+}
+
+.producto img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+
+}
+
+.precio {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.envio {
+    font-size: 14px;
+    color: gray;
+}
+
+
+/* Banner */
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Main */
+main {
+    padding: 2em;
+    text-align: center;
+}
+
+main h2 {
+    margin-bottom: 1em;
+    color: #111;
+}
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+}
+
+.producto {
+    background-color: #f5f5f5;
+    padding: 1em;
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ddd;
+    transition: transform 0.2s ease;
+}
+
+.producto:hover {
+    transform: scale(1.03);
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+.producto button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0.6em 1.2em;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.producto button:hover {
+    background-color: #444;
+}
+
+.beneficios {
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 10px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #10b981;
+    /* mismo verde que el footer */
+}
+
+.benefit {
+    text-align: center;
+    padding: 0 15px;
+    max-width: 250px;
+}
+
+.benefit img {
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.benefit h4 {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #000;
+}
+
+.benefit p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.divider {
+    width: 1px;
+    height: 50px;
+    background-color: #000;
+    margin: 0 10px;
+}
+
+
+.footer {
+    background-color: #10b981;
+    /* verde */
+    color: white;
+    padding: 30px 20px;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-columna {
+    flex: 1;
+    min-width: 280px;
+    margin: 10px;
+}
+
+.footer-columna h4 {
+    margin-bottom: 10px;
+}
+
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.icon-grid img {
+    height: 30px;
+}
+
+.footer-columna p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer-columna img.social-icon {
+    height: 25px;
+}
+
+.icon-small {
+    height: 16px;
+    vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1em;
+        text-align: center;
+    }
+
+    .productos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+}
