@@ -16,17 +16,29 @@ body {
 header {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 .logo {
-    font-size: 2.5em;
-    text-align: center;
-    margin-left: 750px;
-    margin-top: 40px;
+    margin: 0;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.nav-menu {
+    justify-content: right;
+    display: flex;
+    font-size: 20px;
+    margin-right: 20px;
+    list-style-type: none;
+
+}
+
+.sub {
+    /* text-decoration: none; */
+    color: rgb(8, 118, 56);
 }
 
 /* Barra de búsqueda */
@@ -41,7 +53,6 @@ header {
 
 .barra-busqueda input {
     width: 400px;
-    /* Aumentá este valor según lo que quieras */
     padding: 0.5em 1em;
     border: 1px solid #ccc;
     font-size: 1em;
@@ -333,6 +344,31 @@ main h2 {
     header {
         flex-direction: column;
         gap: 1em;
+        text-align: center;
+    }
+
+    .productos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
         text-align: center;
     }
 
