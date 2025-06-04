@@ -189,6 +189,10 @@ nav a {
     color: gray;
 }
 
+.menu-toggle {
+    display: none;
+    /* Oculto en escritorio */
+}
 
 /* Banner */
 .banner img {
@@ -350,12 +354,31 @@ main h2 {
     .productos {
         flex-direction: column;
         align-items: center;
+
     }
 
     nav ul {
         flex-direction: column;
         gap: 0.5em;
     }
+
+    .menu-toggle {
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+        display: block;
+        /* Mostrar icono ☰ */
+
+    }
+
+    .catalogo {
+        display: none;
+        /* Oculto por defecto en móviles */
+        flex-direction: column;
+        gap: 0.5rem;
+
+    }
+
 }
 
 @media (min-width: 600px) and (max-width: 1024px) {
@@ -380,5 +403,13 @@ main h2 {
     nav ul {
         flex-direction: column;
         gap: 0.5em;
+    }
+
+    .catalogo {
+        display: none;
+        /* Oculto por defecto en móviles */
+        flex-direction: column;
+        gap: 0.5rem;
+
     }
 }
