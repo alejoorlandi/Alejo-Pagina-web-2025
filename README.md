@@ -1,4 +1,4 @@
 # Alejo-Pagina-web-2025
+link noticia - - https://estilofutbolar.empretienda.com.ar/
 
-https://estilofutbolar.empretienda.com.ar/
-file:///C:/Users/Alejo/proyectos/Pagina%20web%20Alejo%202025/index.html
+Poyecto Alejo - - file:///C:/Users/Alejo/proyectos/Pagina%20web%20Alejo%202025/index.html
