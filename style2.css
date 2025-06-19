@@ -47,9 +47,114 @@ input[type=password] {
 
 }
 
+#edad {
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    /* Quita el borde */
+    outline: none;
+    /* Quita el contorno en focus */
+    padding: 8px;
+    /* Para que no quede tan pegado */
+    box-sizing: border-box;
+
+
+}
+
+
+#telefono {
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 0
+}
+
+#ciudad {
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 0
+}
+
+#codigopostal {
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 0
+}
+
+#dni {
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 0
+}
+
+#edad {
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 0
+}
+
+#direccion {
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 0
+}
+
+
+
+label {
+    display: none;
+}
+
 .input_contenedor {
     margin-bottom: 15px;
     border: 1px solid #aaa;
+
 
 }
 
@@ -93,6 +198,11 @@ p {
 
 .links:hover {
     color: rgb(2, 92, 17);
+}
+
+label {
+    margin-bottom: 0.3rem;
+    font-weight: bold;
 }
 
 @media (min-width:768px) {

@@ -21,16 +21,45 @@
       <div class="Contenedor">
   
           <div class="Input-Contenedor">
-               <input type="text" placeholder="Nombre Completo " id="name">
+               <input type="text" placeholder="Nombre Completo " name="nombre"
+               class="error" id="error-nombre">
           </div>
   
                <div class="Input-Contenedor">
-                   <input type="text" placeholder="Correo Electrónico " id="email">
+                   <input type="text" placeholder="Correo Electrónico " id="email"   class="error" id="error-nombre">
                </div>
   
                <div class="Input-Contenedor">
-                   <input type="password" placeholder="Contraseña " id="password">
+                   <input type="password" placeholder="Contraseña " id="password"  class="error" id="error-contraseña">
                </div>
+                   <div class="Input-Contenedor">
+        <input type="password" id="repetirContrasena"   class="error" id="error-repetircontraseña" placeholder="Repetir contraseña" required />
+      </div>
+          <div class="input_contenedor">
+        <input type="number" id="edad"placeholder="Edad"   class="error" id="error-edad" min="0" max="120" required />
+        
+      </div>
+
+      <div class="input_contenedor">
+        <input type="tel" id="telefono"  class="error" id="error-telefono" placeholder="Telefono" pattern="[0-9+\s()-]{7,15}" placeholder="Ej: +54 9 11 1234-5678" />
+      </div>
+
+      <div class="input_contenedor">
+        <input type="text" id="direccion"placeholder="Direccion"  class="error" id="error-direccion" name="direccion" />
+      </div>
+
+      <div class="input_contenedor">
+        <input type="text" id="ciudad" placeholder="Ciudad"  class="error" id="error-cuidad" />
+      </div>
+
+      <div class="input_contenedor">
+        <input type="text" id="codigopostal" placeholder="Codigo postal" pattern="\d{4,10}"  class="error" id="error-codigopostal" />
+      </div>
+
+      <div class="input_contenedor">
+        <input type="text" id="dni" placeholder="DNI" pattern="\d{6,10}"   class="error" id="error-dni"/>
+      </div>
+
       
             <input type="submit" value="Registrarse" class="button">
           <p>Al registrarse, aceptas nuestras condiciones de uso y política de privacidad.
@@ -40,6 +69,7 @@
       </div> 
   </form>
 
+      <script src="code.js"></script>
 
 </body>
 </html>
