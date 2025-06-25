@@ -1,55 +1,50 @@
-const form = document.getElementById("registroForm");
-
 const campos = {
-  name: {
-    validar: (valor) => valor.length > 6 && valor.includes(" "),
-    error: "Debe tener más de 6 letras y al menos un espacio.",
+  nombre: {
+    validar: (val) => val.length > 6 && val.includes(" "),
+    error: "Debe tener más de 6 letras y un espacio.",
   },
   email: {
-    validar: (valor) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor),
+    validar: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
     error: "Formato de email inválido.",
   },
   password: {
-    validar: (valor) => /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/.test(valor),
-    error: "Debe tener al menos 8 caracteres con letras y números.",
+    validar: (val) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(val),
+    error: "Mínimo 8 caracteres con letras y números.",
   },
-  repetirContrasena: {
-    validar: (valor) => valor === document.getElementById("password").value,
+  repetirPassword: {
+    validar: (val) => val === document.getElementById("password").value,
     error: "Las contraseñas no coinciden.",
   },
   edad: {
-    validar: (valor) => Number.isInteger(Number(valor)) && Number(valor) >= 18,
-    error: "Debe ser un número entero mayor o igual a 18.",
+    validar: (val) => Number.isInteger(+val) && +val >= 18,
+    error: "Debe ser un número mayor o igual a 18.",
   },
   telefono: {
-    validar: (valor) => /^\d{7,}$/.test(valor),
-    error: "Debe contener al menos 7 dígitos sin espacios ni símbolos.",
+    validar: (val) => /^\d{7,}$/.test(val),
+    error: "Mínimo 7 dígitos, sin espacios ni símbolos.",
   },
   direccion: {
-    validar: (valor) =>
-      /^.{5,}$/.test(valor) &&
-      /\d/.test(valor) &&
-      /[a-zA-Z]/.test(valor) &&
-      valor.includes(" "),
-    error: "Debe tener al menos 5 caracteres con letras, números y un espacio.",
+    validar: (val) =>
+      val.length >= 5 && /\d/.test(val) && /\D/.test(val) && val.includes(" "),
+    error: "Debe tener al menos 5 caracteres, letras, números y un espacio.",
   },
   ciudad: {
-    validar: (valor) => valor.length >= 3,
+    validar: (val) => val.length >= 3,
     error: "Debe tener al menos 3 caracteres.",
   },
-  codigoPostal: {
-    validar: (valor) => valor.length >= 3,
+  cp: {
+    validar: (val) => val.length >= 3,
     error: "Debe tener al menos 3 caracteres.",
   },
   dni: {
-    validar: (valor) => /^\d{7,8}$/.test(valor),
-    error: "Debe tener 7 u 8 dígitos numéricos.",
+    validar: (val) => /^\d{7,8}$/.test(val),
+    error: "Debe ser un número de 7 u 8 dígitos.",
   },
 };
 
-for (let campo in campos) {
+Object.keys(campos).forEach((campo) => {
   const input = document.getElementById(campo);
-  const errorDiv = document.getElementById(`error-${campo}`);
+  const errorDiv = input.nextElementSibling;
 
   input.addEventListener("blur", () => {
     if (!campos[campo].validar(input.value)) {
@@ -60,28 +55,31 @@ for (let campo in campos) {
   input.addEventListener("focus", () => {
     errorDiv.textContent = "";
   });
-}
+});
 
-form.addEventListener("submit", function (e) {
+document.getElementById("formulario").addEventListener("submit", function (e) {
   e.preventDefault();
   let errores = [];
-  let mensajeFinal = "";
+  let datos = {};
 
-  for (let campo in campos) {
+  Object.keys(campos).forEach((campo) => {
     const input = document.getElementById(campo);
-    const errorDiv = document.getElementById(`error-${campo}`);
+    const errorDiv = input.nextElementSibling;
+    const valor = input.value.trim();
 
-    if (!campos[campo].validar(input.value)) {
-      errores.push(`${campo}: ${campos[campo].error}`);
+    if (!campos[campo].validar(valor)) {
       errorDiv.textContent = campos[campo].error;
+      errores.push(`${campo}: ${campos[campo].error}`);
     } else {
-      mensajeFinal += `${campo}: ${input.value}\n`;
+      errorDiv.textContent = "";
+      datos[campo] = valor;
     }
-  }
+  });
 
   if (errores.length > 0) {
     alert("Errores en el formulario:\n\n" + errores.join("\n"));
   } else {
-    alert("Formulario enviado con éxito:\n\n" + mensajeFinal);
+    alert("Formulario enviado con éxito:\n\n" + JSON.stringify(datos, null, 2));
+    this.reset();
   }
 });

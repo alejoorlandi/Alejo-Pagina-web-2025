@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo.css" />
+
+    <title>Formulario de Suscripción</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="volver-contenedor">
+  <a href="index.html" class="btn-volver">← Volver</a>
+</div>
+
+    <form id="formulario">
+      <h2>Formulario de Suscripción</h2>
+
+      <div class="contenedor">
+        <div class="columna">
+          <div class="campo">
+            <label>Nombre completo</label>
+            <input type="text" id="nombre" />
+            <div class="error"></div>
+          </div>
+          <div class="campo">
+            <label>Email</label>
+            <input type="email" id="email" />
+            <div class="error"></div>
+          </div>
+          <div class="campo">
+            <label>Contraseña</label>
+            <input type="password" id="password" />
+            <div class="error"></div>
+          </div>
+          <div class="campo">
+            <label>Repetir Contraseña</label>
+            <input type="password" id="repetirPassword" />
+            <div class="error"></div>
+          </div>
+          <div class="campo">
+            <label>Edad</label>
+            <input type="number" id="edad" />
+            <div class="error"></div>
+          </div>
+        </div>
+        <div class="columna">
+          <div class="campo">
+            <label>Teléfono</label>
+            <input type="text" id="telefono" />
+            <div class="error"></div>
+          </div>
+          <div class="campo">
+            <label>Dirección</label>
+            <input type="text" id="direccion" />
+            <div class="error"></div>
+          </div>
+          <div class="campo">
+            <label>Ciudad</label>
+            <input type="text" id="ciudad" />
+            <div class="error"></div>
+          </div>
+          <div class="campo">
+            <label>Código Postal</label>
+            <input type="text" id="cp" />
+            <div class="error"></div>
+          </div>
+          <div class="campo">
+            <label>DNI</label>
+            <input type="text" id="dni" />
+            <div class="error"></div>
+          </div>
+        </div>
+      </div>
+      <div class="boton-contenedor">
+        <button type="submit">Enviar</button>
+      </div>
+      <div class="footer-columna">
+            <h4>NUESTRAS REDES SOCIALES</h4>
+            <p><i class="fa-brands fa-instagram"></i>Instagram</p>
+
+            <h4>CONTACTO</h4>
+            <p><i class="fa-solid fa-envelope"></i> alejo.orlandi@gmail.com</p>
+            <p><i class="fa-solid fa-arrow-right"></i> Botón de arrepentimiento</p>
+          </div>
+        </div>
+    </form>
+
+    <script src="code.js"></script>
+  </body>
+</html>
