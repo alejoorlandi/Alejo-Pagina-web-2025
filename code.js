@@ -26,7 +26,7 @@ const campos = {
   direccion: {
     validar: (val) =>
       val.length >= 5 && /\d/.test(val) && /\D/.test(val) && val.includes(" "),
-    error: "Debe tener al menos 5 caracteres, letras, números y un espacio.",
+    error: "Debe tener letras, números y un espacio.",
   },
   ciudad: {
     validar: (val) => val.length >= 3,
@@ -42,6 +42,7 @@ const campos = {
   },
 };
 
+// Validaciones al blur y focus
 Object.keys(campos).forEach((campo) => {
   const input = document.getElementById(campo);
   const errorDiv = input.nextElementSibling;
@@ -57,26 +58,7 @@ Object.keys(campos).forEach((campo) => {
   });
 });
 
-document.getElementById("formulario").addEventListener("submit", function (e) {
-  e.preventDefault();
-  let errores = [];
-  let datos = {};
-
-  Object.keys(campos).forEach((campo) => {
-    const input = document.getElementById(campo);
-    const errorDiv = input.nextElementSibling;
-    const valor = input.value.trim();
-
-    if (!campos[campo].validar(valor)) {
-      errorDiv.textContent = campos[campo].error;
-      errores.push(`${campo}: ${campos[campo].error}`);
-    } else {
-      errorDiv.textContent = "";
-      datos[campo] = valor;
-    }
-  });
-
-// Modal básico
+// Crear modal una sola vez
 const modal = document.createElement("div");
 modal.id = "modal";
 modal.style.display = "none";
@@ -98,61 +80,69 @@ document.getElementById("cerrar-modal").onclick = () => {
 };
 
 window.onclick = (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
+  if (e.target === modal) modal.style.display = "none";
 };
 
-// Submit y envío al servidor
-document.getElementById("formulario").addEventListener("submit", async function (e) {
-  e.preventDefault();
-  let errores = [];
-  let datos = {};
+document
+  .getElementById("formulario")
+  .addEventListener("submit", async function (e) {
+    e.preventDefault();
+    let errores = [];
+    let datos = {};
 
-  Object.keys(campos).forEach((campo) => {
-    const input = document.getElementById(campo);
-    const errorDiv = input.nextElementSibling;
-    const valor = input.value.trim();
+    Object.keys(campos).forEach((campo) => {
+      const input = document.getElementById(campo);
+      const errorDiv = input.nextElementSibling;
+      const valor = input.value.trim();
 
-    if (!campos[campo].validar(valor)) {
-      errorDiv.textContent = campos[campo].error;
-      errores.push(`${campo}: ${campos[campo].error}`);
-    } else {
-      errorDiv.textContent = "";
-      datos[campo] = valor;
-    }
-  });
-
-  if (errores.length > 0) {
-    mostrarModal(`<h3>Errores en el formulario</h3><ul>${errores.map(err => `<li>${err}</li>`).join('')}</ul>`);
-    return;
-  }
-
-  try {
-    const response = await fetch("http://curso-dev-2021.herokuapp.com/newsletter", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(datos),
+      if (!campos[campo].validar(valor)) {
+        errorDiv.textContent = campos[campo].error;
+        errores.push(`${campo}: ${campos[campo].error}`);
+      } else {
+        errorDiv.textContent = "";
+        datos[campo] = valor;
+      }
     });
 
-    const result = await response.json();
-
-    if (response.ok) {
-      mostrarModal(`<h3>¡Suscripción exitosa!</h3><pre>${JSON.stringify(result, null, 2)}</pre>`);
-      localStorage.setItem("newsletterData", JSON.stringify(result));
-      this.reset();
-    } else {
-      mostrarModal(`<h3>Error al suscribirse</h3><p>${result.message || "Ocurrió un error desconocido."}</p>`);
+    if (errores.length > 0) {
+      mostrarModal(
+        `<h3>Errores en el formulario</h3><ul>${errores
+          .map((err) => `<li>${err}</li>`)
+          .join("")}</ul>`
+      );
+      return;
     }
-  } catch (error) {
-    mostrarModal(`<h3>Error de red</h3><p>${error.message}</p>`);
-  }
-});
 
-// Al cargar la página: mostrar datos guardados
-window.addEventListener("DOMContentLoaded", () => {
-  const guardado = localStorage.getItem("newsletterData");
-  if (guardado) {
-    const datos = JSON.parse(guardado);
-    mostrarModal(`<h3>Ya estás suscrito</h3><pre>${JSON.stringify(datos, null, 2)}</pre>`);
-  }});
+    try {
+      const response = await fetch(
+        "http://curso-dev-2021.herokuapp.com/newsletter",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(datos),
+        }
+      );
+
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok) {
+        mostrarModal(
+          `<h3>¡Suscripción exitosa!</h3><pre>${JSON.stringify(
+            result,
+            null,
+            2
+          )}</pre>`
+        );
+        localStorage.setItem("newsletterData", JSON.stringify(result));
+        this.reset();
+      } else {
+        mostrarModal(
+          `<h3>Error al suscribirse</h3><p>${
+            result.message || "Ocurrió un error desconocido."
+          }</p>`
+        );
+      }
+    } catch (error) {
+      mostrarModal(`<h3>Error de red</h3><p>${error.message}</p>`);
+    }
+  });
