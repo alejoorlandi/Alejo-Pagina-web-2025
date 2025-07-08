@@ -115,7 +115,7 @@ document
 
     try {
       const response = await fetch(
-        "http://curso-dev-2021.herokuapp.com/newsletter",
+        "https://curso-dev-2021.herokuapp.com/newsletter",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
